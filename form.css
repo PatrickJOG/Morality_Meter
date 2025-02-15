@@ -1,46 +1,77 @@
 body {
-  font-family: sans-serif;
-  background-color: #f4f4f4; /* Light gray background for the whole page */
-  display: flex; /* Center the form horizontally and vertically */
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  background: linear-gradient(to bottom right, #e0eafc, #cfdef3); /* Soothing gradient background */
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure full viewport height */
-  margin: 0; /* Remove default body margins */
+  min-height: 100vh;
+  margin: 0;
+  color: #333; /* Dark gray text for better contrast */
 }
 
-#moralityForm {
-  background-color: white; /* White background for the form container */
-  padding: 20px;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  width: 400px; /* Adjust width as needed */
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  width: 500px; /* Adjust as needed */
+  text-align: center; /* Center the heading and paragraph */
 }
 
-#moralityForm label {
+h1 {
+  color: #2c3e50; /* Darker heading color */
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555; /* Slightly lighter paragraph color */
+  margin-bottom: 25px;
+}
+
+.question {
+  margin-bottom: 20px;
+  text-align: left; /* Align question text to the left */
+}
+
+.question label {
   display: block;
-  margin-bottom: 5px;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
-#moralityForm input[type="radio"] {
-  margin-right: 5px;
+.options {
+  display: flex; /* Arrange radio button options horizontally */
+  gap: 20px; /* Space between radio button options */
 }
 
-#moralityForm button[type="submit"] {
-  background-color: #007bff; /* Blue button */
+.options label {
+  margin-bottom: 0; /* Remove margin from radio button labels */
+  cursor: pointer; /* Make labels clickable */
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #4CAF50; /* Green accent color for radio buttons */
+}
+
+button[type="submit"] {
+  background-color: #4CAF50; /* Green button */
   color: white;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-#moralityForm button[type="submit"]:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+button[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
 }
 
-#results {
-  margin-top: 20px;
-  font-weight: bold;
-  text-align: center; /* Center the result text */
+.results {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #27ae60; /* Green result text */
 }

@@ -1,61 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Morality Questionnaire</title>
-    <link rel="stylesheet" href="form.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morality Meter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">  </head>
 <body>
-    <h1>Are You Moral (in the eyes of the future)?</h1>
-    <form id="moralityForm">
+    <div class="container">
+        <h1>Morality Meter</h1>
+        <p>Discover where you stand in the eyes of the future.</p>
 
-        <label>Do you buy from any fast fashion brands?</label><br>
-        <input type="radio" name="fastFashion" value="no" id="fastFashionNo" required>
-        <label for="fastFashionNo">No</label>
-        <input type="radio" name="fastFashion" value="yes" id="fastFashionYes">
-        <label for="fastFashionYes">Yes</label><br><br>
+        <form id="moralityForm">
 
-        <label>Do you have children? Or are you planning to have children?</label><br>
-        <input type="radio" name="children" value="no" id="childrenNo" required>
-        <label for="childrenNo">No</label>
-        <input type="radio" name="children" value="yes" id="childrenYes">
-        <label for="childrenYes">Yes</label>
-        <input type="radio" name="children" value="planning" id="childrenPlanning">
-        <label for="childrenPlanning">Planning to</label><br><br>
+            <div class="question">
+                <label>Do you buy from any fast fashion brands?</label>
+                <div class="options">
+                    <label><input type="radio" name="fastFashion" value="no" required> No</label>
+                    <label><input type="radio" name="fastFashion" value="yes"> Yes</label>
+                </div>
+            </div>
 
-        <label>Do you eat meat or dairy?</label><br>
-        <input type="radio" name="meatDairy" value="no" id="meatDairyNo" required>
-        <label for="meatDairyNo">No</label>
-        <input type="radio" name="meatDairy" value="yes" id="meatDairyYes">
-        <label for="meatDairyYes">Yes</label><br><br>
+            <div class="question">
+                <label>Do you have children, or are you planning to?</label>
+                <div class="options">
+                    <label><input type="radio" name="children" value="no" required> No</label>
+                    <label><input type="radio" name="children" value="yes"> Yes</label>
+                    <label><input type="radio" name="children" value="planning"> Planning to</label>
+                </div>
+            </div>
 
-        <label>Do you support using farmland for solar panels?</label><br>
-        <input type="radio" name="solarFarmland" value="no" id="solarFarmlandNo" required>
-        <label for="solarFarmlandNo">No</label>
-        <input type="radio" name="solarFarmland" value="yes" id="solarFarmlandYes">
-        <label for="solarFarmlandYes">Yes</label><br><br>
+            <div class="question">
+                <label>Do you eat meat or dairy?</label>
+                <div class="options">
+                    <label><input type="radio" name="meatDairy" value="no" required> No</label>
+                    <label><input type="radio" name="meatDairy" value="yes"> Yes</label>
+                </div>
+            </div>
 
-        <label>Do you oppose nuclear energy?</label><br>
-        <input type="radio" name="nuclearEnergy" value="no" id="nuclearEnergyNo" required>
-        <label for="nuclearEnergyNo">No</label>
-        <input type="radio" name="nuclearEnergy" value="yes" id="nuclearEnergyYes">
-        <label for="nuclearEnergyYes">Yes</label><br><br>
+            <div class="question">
+                <label>Do you support using farmland for solar panels?</label>
+                <div class="options">
+                    <label><input type="radio" name="solarFarmland" value="no" required> No</label>
+                    <label><input type="radio" name="solarFarmland" value="yes"> Yes</label>
+                </div>
+            </div>
 
-        <label>Do you support economic degrowth?</label><br>
-        <input type="radio" name="economicDegrowth" value="no" id="economicDegrowthNo" required>
-        <label for="economicDegrowthNo">No</label>
-        <input type="radio" name="economicDegrowth" value="yes" id="economicDegrowthYes">
-        <label for="economicDegrowthYes">Yes</label><br><br>
+            <div class="question">
+                <label>Do you oppose nuclear energy?</label>
+                <div class="options">
+                    <label><input type="radio" name="nuclearEnergy" value="no" required> No</label>
+                    <label><input type="radio" name="nuclearEnergy" value="yes"> Yes</label>
+                </div>
+            </div>
 
-        <label>Do you support human and machine relationships?</label><br>
-        <input type="radio" name="machineRelationships" value="no" id="machineRelationshipsNo" required>
-        <label for="machineRelationshipsNo">No</label>
-        <input type="radio" name="machineRelationships" value="yes" id="machineRelationshipsYes">
-        <label for="machineRelationshipsYes">Yes</label><br><br>
+            <div class="question">
+                <label>Do you support economic degrowth?</label>
+                <div class="options">
+                    <label><input type="radio" name="economicDegrowth" value="no" required> No</label>
+                    <label><input type="radio" name="economicDegrowth" value="yes"> Yes</label>
+                </div>
+            </div>
 
-        <button type="submit">Submit</button>
-    </form>
-    <div id="results"></div>
+            <div class="question">
+                <label>Do you support human and machine relationships?</label>
+                <div class="options">
+                    <label><input type="radio" name="machineRelationships" value="no" required> No</label>
+                    <label><input type="radio" name="machineRelationships" value="yes"> Yes</label>
+                </div>
+            </div>
 
-    <script src="logic.js"></script>
+            <button type="submit">Calculate</button>
+        </form>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

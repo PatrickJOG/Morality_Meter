@@ -3,7 +3,6 @@ document.getElementById('moralityForm').addEventListener('submit', function(even
 
     let score = 0;
 
-    // Get answers and calculate score
     const answers = {
         fastFashion: document.querySelector('input[name="fastFashion"]:checked').value,
         children: document.querySelector('input[name="children"]:checked').value,
