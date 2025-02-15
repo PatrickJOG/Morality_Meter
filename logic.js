@@ -1,21 +1,33 @@
 document.getElementById('moralityForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from actually submitting
+    event.preventDefault();
 
-    // Get answers (you'll need to adapt this based on how you structure your questions)
-    const q1 = document.querySelector('input[name="q1"]:checked').value;
-
-    // Calculate morality score (replace with your logic)
     let score = 0;
-    if (q1 === 'moral') {
-        score++;
-    }
-    // ... add logic for other questions
 
-    // Display results
+    // Get answers and calculate score
+    const answers = {
+        fastFashion: document.querySelector('input[name="fastFashion"]:checked').value,
+        children: document.querySelector('input[name="children"]:checked').value,
+        meatDairy: document.querySelector('input[name="meatDairy"]:checked').value,
+        solarFarmland: document.querySelector('input[name="solarFarmland"]:checked').value,
+        nuclearEnergy: document.querySelector('input[name="nuclearEnergy"]:checked').value,
+        economicDegrowth: document.querySelector('input[name="economicDegrowth"]:checked').value,
+        machineRelationships: document.querySelector('input[name="machineRelationships"]:checked').value
+    };
+
+    // Example scoring logic (customize as needed)
+    if (answers.fastFashion === 'no') score++;
+    if (answers.children === 'no') score++;
+    if (answers.meatDairy === 'no') score++;
+    if (answers.solarFarmland === 'yes') score++;
+    if (answers.nuclearEnergy === 'no') score++;
+    if (answers.economicDegrowth === 'yes') score++;
+    if (answers.machineRelationships === 'no') score++;
+
+
     const resultsDiv = document.getElementById('results');
-    if (score > 5) { // Example threshold
-        resultsDiv.textContent = "You are moral!";
+    if (score >= 4) { // Adjust threshold as needed
+        resultsDiv.textContent = "You are moral (in the eyes of the future)!";
     } else {
-        resultsDiv.textContent = "You are immoral!";
+        resultsDiv.textContent = "You are immoral (in the eyes of the future)!";
     }
 });

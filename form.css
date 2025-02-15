@@ -1,8 +1,46 @@
 body {
-    font-family: sans-serif;
-  }
-  
-  #results {
-    margin-top: 20px;
-    font-weight: bold;
-  }
+  font-family: sans-serif;
+  background-color: #f4f4f4; /* Light gray background for the whole page */
+  display: flex; /* Center the form horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure full viewport height */
+  margin: 0; /* Remove default body margins */
+}
+
+#moralityForm {
+  background-color: white; /* White background for the form container */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 400px; /* Adjust width as needed */
+}
+
+#moralityForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#moralityForm input[type="radio"] {
+  margin-right: 5px;
+}
+
+#moralityForm button[type="submit"] {
+  background-color: #007bff; /* Blue button */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#moralityForm button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+#results {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center; /* Center the result text */
+}
