@@ -1,5 +1,7 @@
 # Morality_Meter
+Please Help
 Short webform that helps determine your morality
+<<<<<<< HEAD
 
 # Morality Meter
 
@@ -117,3 +119,6 @@ Feel free to contribute to this project by:
 3. Enhancing the feedback mechanism
 4. Adding historical examples
 5. Translating to other languages
+=======
+URL: https://moralitymeter.netlify.app/
+>>>>>>> 93d895a (Update README.md)
