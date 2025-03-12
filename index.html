@@ -7,73 +7,171 @@
     <link rel="stylesheet" href="form.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">  </head>
 <body>
-    <div class="container">
+    <div class="header-section">
         <h1>Morality Meter</h1>
-        <p>Discover where you stand in the eyes of the future.</p>
+        <p class="subtitle">Discover how future generations might judge our present-day choices</p>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
 
-        <form id="moralityForm">
-
-            <div class="question">
-                <label>Do you buy from any fast fashion brands?</label>
-                <div class="options">
-                    <label><input type="radio" name="fastFashion" value="no" required> No</label>
-                    <label><input type="radio" name="fastFashion" value="yes"> Yes</label>
+    <div class="container">
+        <div class="questions-container">
+            <form id="moralityForm">
+                <div class="question" data-explanation="Fast fashion retailers like H&M, Boohoo, Shein, and Primark are major contributors to environmental damage and labour exploitation.">
+                    <div class="question-text">Do you purchase clothing from H&M, Boohoo, Shein, or Primark?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="fastFashion" value="no" id="fastFashion-no">
+                            <label for="fastFashion-no">
+                                <h3>No</h3>
+                                <p>I avoid fast fashion</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="fastFashion" value="yes" id="fastFashion-yes">
+                            <label for="fastFashion-yes">
+                                <h3>Yes</h3>
+                                <p>I buy from these retailers</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="question">
-                <label>Do you have children, or are you planning to?</label>
-                <div class="options">
-                    <label><input type="radio" name="children" value="no" required> No</label>
-                    <label><input type="radio" name="children" value="yes"> Yes</label>
-                    <label><input type="radio" name="children" value="planning"> Planning to</label>
+                <div class="question" data-explanation="Future societies may view human reproduction differently due to environmental concerns.">
+                    <div class="question-text">Do you have or want to have children?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="children" value="no" id="children-no">
+                            <label for="children-no">
+                                <h3>No</h3>
+                                <p>I don't want children</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="children" value="yes" id="children-yes">
+                            <label for="children-yes">
+                                <h3>Yes</h3>
+                                <p>I want to have children</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="question">
-                <label>Do you eat meat or dairy?</label>
-                <div class="options">
-                    <label><input type="radio" name="meatDairy" value="no" required> No</label>
-                    <label><input type="radio" name="meatDairy" value="yes"> Yes</label>
+                <div class="question" data-explanation="Meat and dairy production is a major contributor to greenhouse gas emissions, deforestation, and water pollution.">
+                    <div class="question-text">Do you eat meat or dairy?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="meatDairy" value="no" id="meatDairy-no" required>
+                            <label for="meatDairy-no">
+                                <h3>No</h3>
+                                <p>I don't eat meat or dairy</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="meatDairy" value="yes" id="meatDairy-yes">
+                            <label for="meatDairy-yes">
+                                <h3>Yes</h3>
+                                <p>I eat meat or dairy</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="question">
-                <label>Do you support using farmland for solar panels?</label>
-                <div class="options">
-                    <label><input type="radio" name="solarFarmland" value="no" required> No</label>
-                    <label><input type="radio" name="solarFarmland" value="yes"> Yes</label>
+                <div class="question" data-explanation="Solar panels can be installed on farmland, which can reduce the need for new farmland and help mitigate climate change.">
+                    <div class="question-text">Do you support using farmland for solar panels?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="solarFarmland" value="no" id="solarFarmland-no" required>
+                            <label for="solarFarmland-no">
+                                <h3>No</h3>
+                                <p>I don't support using farmland for solar panels</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="solarFarmland" value="yes" id="solarFarmland-yes">
+                            <label for="solarFarmland-yes">
+                                <h3>Yes</h3>
+                                <p>I support using farmland for solar panels</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="question">
-                <label>Do you oppose nuclear energy?</label>
-                <div class="options">
-                    <label><input type="radio" name="nuclearEnergy" value="no" required> No</label>
-                    <label><input type="radio" name="nuclearEnergy" value="yes"> Yes</label>
+                <div class="question" data-explanation="Nuclear energy is a major source of nuclear waste and can be dangerous if not handled properly.">
+                    <div class="question-text">Do you oppose nuclear energy?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="nuclearEnergy" value="no" id="nuclearEnergy-no" required>
+                            <label for="nuclearEnergy-no">
+                                <h3>No</h3>
+                                <p>I don't oppose nuclear energy</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="nuclearEnergy" value="yes" id="nuclearEnergy-yes">
+                            <label for="nuclearEnergy-yes">
+                                <h3>Yes</h3>
+                                <p>I oppose nuclear energy</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="question">
-                <label>Do you support economic degrowth?</label>
-                <div class="options">
-                    <label><input type="radio" name="economicDegrowth" value="no" required> No</label>
-                    <label><input type="radio" name="economicDegrowth" value="yes"> Yes</label>
+                <div class="question" data-explanation="Economic degrowth can help reduce environmental impact and promote sustainability.">
+                    <div class="question-text">Do you support economic degrowth?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="economicDegrowth" value="no" id="economicDegrowth-no" required>
+                            <label for="economicDegrowth-no">
+                                <h3>No</h3>
+                                <p>I don't support economic degrowth</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="economicDegrowth" value="yes" id="economicDegrowth-yes">
+                            <label for="economicDegrowth-yes">
+                                <h3>Yes</h3>
+                                <p>I support economic degrowth</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="question">
-                <label>Do you support human and machine relationships?</label>
-                <div class="options">
-                    <label><input type="radio" name="machineRelationships" value="no" required> No</label>
-                    <label><input type="radio" name="machineRelationships" value="yes"> Yes</label>
+                <div class="question" data-explanation="Human and machine relationships can be beneficial for both humans and machines, but they can also pose risks if not managed properly.">
+                    <div class="question-text">Do you support human and machine relationships?</div>
+                    <div class="options">
+                        <div class="option-box">
+                            <input type="radio" name="machineRelationships" value="no" id="machineRelationships-no" required>
+                            <label for="machineRelationships-no">
+                                <h3>No</h3>
+                                <p>I don't support human and machine relationships</p>
+                            </label>
+                        </div>
+                        <div class="option-box">
+                            <input type="radio" name="machineRelationships" value="yes" id="machineRelationships-yes">
+                            <label for="machineRelationships-yes">
+                                <h3>Yes</h3>
+                                <p>I support human and machine relationships</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
+
+                <button type="submit" style="display: none;">Judge Me</button>
+            </form>
+        </div>
+
+        <div class="results-overlay">
+            <div class="results-content">
+                <span class="close-results">&times;</span>
+                <h2>Your Future Morality Analysis</h2>
+                <div id="score-display"></div>
+                <div id="detailed-feedback"></div>
+                <div id="future-perspective"></div>
+                <button id="restart-quiz">Take the Quiz Again</button>
             </div>
-
-            <button type="submit">Calculate</button>
-        </form>
-
-        <div id="results" class="results"></div>
+        </div>
     </div>
 
     <script src="logic.js"></script>
