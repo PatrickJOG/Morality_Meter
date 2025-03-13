@@ -152,6 +152,7 @@ h1 {
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
+  position: relative;
 }
 
 .option-box h3 {
@@ -199,12 +200,19 @@ button[type="submit"] {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
+  opacity: 0.5; /* Make it look disabled */
 }
 
-button[type="submit"]:hover {
+button[type="submit"].ready {
+  opacity: 1;
   background-color: var(--accent-color);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
+  animation: pulse 2s infinite;
+}
+
+button[type="submit"]:not(.ready):hover {
+  cursor: not-allowed;
+  transform: none;
+  background-color: var(--primary-color);
 }
 
 button[type="submit"]:active {
@@ -270,58 +278,71 @@ button[type="submit"]:active {
     color: var(--text-bright);
 }
 
+/* Update time indicator */
 .time-indicator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    text-align: center;
     margin-bottom: 40px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--text-bright);
 }
 
-.time-arrow {
+.time-indicator span {
     color: var(--accent-color);
-    font-size: 2rem;
-    animation: pulse 2s infinite;
+    font-weight: 500;
 }
 
-.future-year {
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 2rem;
-}
-
+/* Further simplify scenario cards */
 .scenario-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 25px;
-    margin: 20px 0;
-    border-left: 4px solid var(--warning-color);
-    transition: all 0.3s ease;
-}
-
-.scenario-card:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 3px solid var(--accent-color);
 }
 
 .scenario-card h3 {
-    color: var(--accent-color);
+    color: var(--text-bright);
     margin-bottom: 15px;
+    font-size: 1.3rem;
 }
 
-.scenario-card .future-context {
-    color: var(--text-dim);
-    font-style: italic;
-    margin: 10px 0;
-    padding-left: 15px;
-    border-left: 2px solid var(--accent-color);
+.scenario-section {
+    margin: 12px 0;
 }
 
-.scenario-card .moral-judgment {
-    color: var(--warning-color);
-    font-weight: 500;
-    margin-top: 15px;
+.scenario-section h4 {
+    color: var(--accent-color);
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.scenario-section p {
+    color: var(--text-bright);
+    line-height: 1.4;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Simplified overall judgment */
+.overall-judgment {
+    text-align: center;
+    padding: 25px;
+    margin: 20px 0 40px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--warning-color);
+}
+
+.overall-judgment h2 {
+    color: var(--text-bright);
+    margin-bottom: 10px;
+}
+
+.overall-judgment p {
+    color: var(--text-bright);
+    opacity: 0.9;
 }
 
 .restart-button {
@@ -346,4 +367,84 @@ button[type="submit"]:active {
     padding: 30px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
+}
+
+/* Update option box styling to show selected state */
+.option-box.selected {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 180, 216, 0.2);
+}
+
+.option-box.selected h3,
+.option-box.selected p {
+    color: white;
+}
+
+/* Add error state for unanswered questions */
+.question.unanswered {
+    border: 2px solid var(--warning-color);
+    animation: shake 0.5s ease-in-out;
+    box-shadow: 0 0 15px rgba(239, 71, 111, 0.2);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.debate-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-bright);
+    padding: 15px 30px;
+    border: 1px solid var(--text-dim);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.debate-button:hover {
+    background: var(--warning-color);
+    border-color: var(--warning-color);
+    transform: translateY(-2px);
+}
+
+/* Update overall judgment styling */
+.overall-judgment.harsh {
+    border-left: 3px solid var(--warning-color);
+    animation: harsh-pulse 3s ease-in-out infinite;
+}
+
+@keyframes harsh-pulse {
+    0% {
+        background: rgba(239, 71, 111, 0.05);
+        box-shadow: 0 0 20px rgba(239, 71, 111, 0);
+    }
+    50% {
+        background: rgba(239, 71, 111, 0.15);
+        box-shadow: 0 0 20px rgba(239, 71, 111, 0.2);
+    }
+    100% {
+        background: rgba(239, 71, 111, 0.05);
+        box-shadow: 0 0 20px rgba(239, 71, 111, 0);
+    }
+}
+
+.overall-judgment.harsh h2 {
+    color: var(--warning-color);
+}
+
+.overall-judgment.harsh p {
+    color: var(--text-bright);
+    opacity: 0.9;
 }

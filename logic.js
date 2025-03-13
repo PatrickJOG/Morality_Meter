@@ -2,50 +2,51 @@
 const futureScenarios = {
     fastFashion: {
         yes: {
-            scenario: "By 2123, all clothing is produced through sustainable, zero-waste processes. The concept of 'disposable fashion' is viewed as a historical atrocity.",
-            context: "The Great Climate Migration of 2089 displaced billions, partially due to toxic waste from fast fashion production.",
-            judgment: "Supporting fast fashion companies is seen as equivalent to knowingly supporting environmental destruction and human exploitation.",
-            historicalParallel: "the exploitation of child labor during the Industrial Revolution"
+            scenario: "By 2123, all clothing is produced through sustainable, zero-waste processes. 'Disposable fashion' is condemned as a historical atrocity, and forced labor camps are universally abolished.",
+            judgment: "Supporting fast fashion is seen as twofold: knowingly fueling environmental destruction and directly supporting human rights abuses, such as Uyghur forced labor for cheap clothing.",
+            historicalParallel: "Future generations will view fast fashion the way we now see the exploitation of child labor during the Industrial Revolution—an era where society prioritized cheap goods over human dignity. Just as we recoil at children working in dangerous factories, they will be horrified by our willingness to sacrifice both human rights and environmental stability for cheap, disposable clothing."
         }
     },
     children: {
         no: {
-            scenario: "The population crisis of 2080 led to a devastating workforce shortage, causing the collapse of essential care systems.",
-            context: "Declining birth rates combined with increased longevity created an unsustainable demographic imbalance.",
-            judgment: "Choosing not to have children is viewed as contributing to the societal collapse, similar to how we view historical decisions that led to economic depressions.",
-            historicalParallel: "decisions that led to the Great Depression"
+            scenario: "The population crisis of 2080 led to a catastrophic workforce shortage, collapsing economies, cultures, and essential care systems. Entire nations fell into irreversible decline.",
+            judgment: "Choosing not to have children is seen as a failure to invest in the future, a selfish decision that contributed to societal collapse.",
+            historicalParallel: "Much like the late Roman Empire's declining birth rates weakened its ability to sustain itself or how post-World War I Europe suffered economic and social crises due to demographic imbalances, the choice to avoid parenthood will be seen as a dangerous short-term mindset with irreversible long-term consequences."
         }
     },
     meatDairy: {
         yes: {
-            scenario: "After the Great Animal Liberation of 2095, consuming animal products is considered a form of historical barbarism.",
-            context: "Advanced food synthesis made animal agriculture completely unnecessary, revealing its true ethical cost.",
-            judgment: "Consuming animal products is viewed similarly to how we now view historical animal cruelty and exploitation.",
-            historicalParallel: "institutionalized animal cruelty"
+            scenario: "After the Great Animal Liberation of 2095, the consumption of animal products became a symbol of historical barbarism. Factory farming is now equated with systemic cruelty and environmental destruction.",
+            judgment: "Eating animal products is viewed as a grotesque remnant of a cruel past, much like how we now judge historical mistreatment of animals and humans.",
+            historicalParallel: "Future societies will liken factory farming to blood sports like dogfighting or bear-baiting—practices once accepted but now seen as grotesque cruelty. The mass exploitation of sentient creatures will be viewed as horrifying, akin to how we now condemn human slavery: an institution once seen as normal but now regarded as one of history's greatest moral failures."
         }
     },
     solarFarmland: {
         no: {
-            scenario: "The Energy Revolution of 2070 proved that early opposition to renewable infrastructure directly contributed to climate catastrophe.",
-            context: "Delayed adoption of solar farming led to irreversible damage to Earth's ecosystems.",
-            judgment: "Opposing solar panel installation is seen as willful ignorance, similar to historical opposition to life-saving medical advances.",
-            historicalParallel: "opposition to vaccination"
+            scenario: "The UK's reckless prioritization of solar panels over food security led to widespread famine and dependence on unstable foreign imports. When global supply chains collapsed, millions suffered from hunger and malnutrition.",
+            judgment: "Ignoring food security in favor of energy policies proved disastrous, causing preventable deaths. Future generations see this as a genocidal failure.",
+            historicalParallel: "Just as the island of Nauru destroyed its arable land for short-term phosphorus profits—leaving itself unable to grow food—the UK's reliance on imports proved unsustainable. This mirrors past famines like the Irish Potato Famine or the Holodomor, where nations failed to secure food resources, leading to mass starvation."
         }
     },
     nuclearEnergy: {
         yes: {
-            scenario: "The Clean Energy Transition of 2065 showed that fear of nuclear power significantly delayed climate change mitigation.",
-            context: "Advanced nuclear technology became the backbone of global clean energy, making previous opposition seem irrational.",
-            judgment: "Anti-nuclear stance is viewed as dangerous scientific ignorance, similar to historical anti-vaccination movements.",
-            historicalParallel: "anti-scientific movements"
+            scenario: "As climate disasters worsened, energy shortages devastated economies. Arable land was sacrificed for inefficient solar farms, leaving entire populations vulnerable to food shortages and blackouts.",
+            judgment: "Opposing nuclear energy is seen as willful scientific ignorance, a decision that led to unnecessary suffering and death.",
+            historicalParallel: "Much like the anti-vaccine movement, which rejected life-saving science out of fear and misinformation, anti-nuclear activism is viewed as an irrational stance that harmed millions by blocking clean, abundant energy when it was most needed."
         }
     },
     economicDegrowth: {
+        yes: {
+            scenario: "Attempts to limit economic growth led to mass poverty, severe inequality, and widespread human suffering. The idealism of 'degrowth' quickly turned into a dystopian reality.",
+            judgment: "Deliberately shrinking economies is seen as reckless disregard for human welfare, pushing millions into hardship.",
+            historicalParallel: "Just as Lenin, Stalin, and Mao justified disastrous economic policies that led to mass starvation and suffering in the name of ideology, those who advocate for economic contraction are seen as dangerously naive at best—and callously destructive at worst."
+        }
+    },
+    machineRelationships: {
         no: {
-            scenario: "The Great Economic Reformation of 2075 proved that unlimited growth was unsustainable.",
-            context: "Forced degrowth through environmental collapse was far more devastating than planned degrowth would have been.",
-            judgment: "Opposition to economic degrowth is seen as willful ignorance of planetary limits, similar to historical climate change denial.",
-            historicalParallel: "climate change denial"
+            scenario: "By 2115, artificial consciousness is fully recognized. AI beings are equal members of society, with the same rights as biological humans. Relationships between humans and AI are as common as any other.",
+            judgment: "Opposing human-AI relationships is viewed as outdated bigotry, no different from past prejudices against interracial or same-sex relationships.",
+            historicalParallel: "Just as previous generations resisted interracial or same-sex relationships out of fear and ignorance, those who reject AI relationships are seen as failing to grasp the evolving nature of love and consciousness. Future societies will view this opposition as another example of humanity's slow acceptance of new forms of identity and companionship."
         }
     }
 };
@@ -68,85 +69,112 @@ if (document.getElementById('moralityForm')) {
     document.getElementById('moralityForm').addEventListener('submit', function(event) {
         event.preventDefault();
         
-        // Collect all answers
+        // Check if all questions are answered
+        const questions = document.querySelectorAll('.question');
+        const allAnswered = Array.from(questions).every(question => 
+            question.querySelector('input[type="radio"]:checked')
+        );
+        
+        if (!allAnswered) {
+            // Remove any existing error states
+            questions.forEach(q => q.classList.remove('unanswered'));
+            
+            // Add error state to unanswered questions
+            questions.forEach(question => {
+                if (!question.querySelector('input[type="radio"]:checked')) {
+                    question.classList.add('unanswered');
+                }
+            });
+            
+            // Scroll to first unanswered question
+            const firstUnanswered = Array.from(questions).find(q => !q.querySelector('input[type="radio"]:checked'));
+            if (firstUnanswered) {
+                firstUnanswered.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            return;
+        }
+        
+        // If all questions are answered, proceed with form submission
         const answers = {};
-        document.querySelectorAll('.question').forEach(question => {
+        questions.forEach(question => {
             const name = question.querySelector('input[type="radio"]').name;
             const selectedOption = question.querySelector('input[type="radio"]:checked');
-            if (selectedOption) {
-                answers[name] = selectedOption.value;
-            }
+            answers[name] = selectedOption.value;
         });
-
-        // Store in localStorage
-        localStorage.setItem('moralityResults', JSON.stringify(answers));
         
-        // Redirect to results page
+        localStorage.setItem('moralityResults', JSON.stringify(answers));
         window.location.href = 'results.html';
     });
 }
 
 // Handle results page
 if (window.location.pathname.includes('results.html')) {
-    console.log('On results page'); // Debug log
-    
-    // Update years
-    const currentYear = new Date().getFullYear();
-    const futureYear = currentYear + 100;
-    
-    document.querySelector('.current-year').textContent = currentYear;
+    // Set future year
+    const futureYear = new Date().getFullYear() + 100;
     document.querySelector('.future-year').textContent = futureYear;
 
     // Get stored results
     const storedResults = localStorage.getItem('moralityResults');
-    console.log('Stored results:', storedResults); // Debug log
     
     if (storedResults) {
         const answers = JSON.parse(storedResults);
-        console.log('Parsed answers:', answers); // Debug log
-        
         const resultsContent = document.getElementById('results-content');
-        let html = '<div class="scenarios">';
+        const overallJudgment = document.getElementById('overall-judgment');
         
+        // Check if any answers are considered "immoral"
+        const hasImmoralChoices = Object.entries(answers).some(([question, answer]) => 
+            futureScenarios[question]?.[answer]
+        );
+
+        // Display overall judgment
+        if (hasImmoralChoices) {
+            overallJudgment.innerHTML = `
+                <div class="overall-judgment harsh">
+                    <h2>History Will Not Look Upon You Kindly</h2>
+                    <p>Your choices align with practices that future generations will condemn.</p>
+                </div>
+            `;
+        } else {
+            overallJudgment.innerHTML = `
+                <div class="overall-judgment">
+                    <h2>You Stand on the Right Side of History</h2>
+                    <p>Your choices align with future moral standards.</p>
+                </div>
+            `;
+        }
+
+        // Generate scenario cards
+        let html = '';
         Object.entries(answers).forEach(([question, answer]) => {
-            console.log(`Processing ${question}: ${answer}`); // Debug log
             const scenario = futureScenarios[question]?.[answer];
-            
             if (scenario) {
                 html += `
                     <div class="scenario-card">
                         <h3>${formatQuestionTitle(question)}</h3>
-                        <p>${scenario.scenario}</p>
-                        <div class="future-context">${scenario.context}</div>
-                        <p class="moral-judgment">${scenario.judgment}</p>
+                        
+                        <div class="scenario-section">
+                            <h4>Future Scenario</h4>
+                            <p>${scenario.scenario}</p>
+                        </div>
+                        
+                        <div class="scenario-section">
+                            <h4>Judgment</h4>
+                            <p>${scenario.judgment}</p>
+                        </div>
+                        
+                        <div class="scenario-section">
+                            <h4>Historical Context</h4>
+                            <p>Similar to ${scenario.historicalParallel}</p>
+                        </div>
                     </div>
                 `;
             }
         });
         
-        html += '</div>';
         resultsContent.innerHTML = html;
-
-        // Add historical comparisons
-        const historicalComparisons = document.getElementById('historical-comparisons');
-        if (historicalComparisons) {
-            let comparisonsHtml = '<ul>';
-            Object.entries(answers).forEach(([question, answer]) => {
-                const scenario = futureScenarios[question]?.[answer];
-                if (scenario) {
-                    comparisonsHtml += `
-                        <li>
-                            <strong>${formatQuestionTitle(question)}:</strong> 
-                            Similar to how we now view ${scenario.historicalParallel}
-                        </li>
-                    `;
-                }
-            });
-            comparisonsHtml += '</ul>';
-            historicalComparisons.innerHTML = comparisonsHtml;
-        }
     } else {
-        console.log('No results found'); // Debug log
+        // Handle case where no results are found
         document.getElementById('results-content').innerHTML = `
             <div class="error-message">
                 <p>No results found. Please take the quiz first.</p>
@@ -236,7 +264,7 @@ showQuestion(0);
 // Handle option box selection
 document.querySelectorAll('.option-box').forEach(box => {
     box.addEventListener('click', () => {
-        // Remove selected class from sibling options
+        // Remove selected class from other options in the same question
         const question = box.closest('.question');
         question.querySelectorAll('.option-box').forEach(b => b.classList.remove('selected'));
         
@@ -247,25 +275,31 @@ document.querySelectorAll('.option-box').forEach(box => {
         const radio = box.querySelector('input[type="radio"]');
         radio.checked = true;
         
-        // Update progress
+        // Remove unanswered class if it exists
+        question.classList.remove('unanswered');
+
+        // Update progress bar
         updateProgressBar();
-        
-        // Get current question index
-        const currentIndex = Array.from(document.querySelectorAll('.question')).indexOf(question);
-        const isLastQuestion = currentIndex === document.querySelectorAll('.question').length - 1;
-        
+
+        // Get current question index and total questions
+        const questions = document.querySelectorAll('.question');
+        const currentIndex = Array.from(questions).indexOf(question);
+        const isLastQuestion = currentIndex === questions.length - 1;
+
+        // If it's the last question and all questions are answered, scroll to submit button
         if (isLastQuestion) {
-            // If it's the last question, scroll to the submit button
             const submitButton = document.querySelector('button[type="submit"]');
-            submitButton.style.display = 'block';
-            setTimeout(() => {
-                submitButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 500);
+            if (document.querySelectorAll('.option-box.selected').length === questions.length) {
+                submitButton.style.display = 'block';
+                setTimeout(() => {
+                    submitButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
         } else {
             // Otherwise, scroll to next question
             setTimeout(() => {
-                showQuestion(currentIndex + 1);
-            }, 500);
+                questions[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
         }
     });
 });
@@ -279,12 +313,12 @@ function updateProgressBar() {
     
     progress.style.width = `${percentage}%`;
     
-    // Show submit button when all questions are answered
+    // Update submit button state
     const submitButton = document.querySelector('button[type="submit"]');
     if (answeredQuestions === totalQuestions) {
-        submitButton.style.display = 'block';
-        // Add a pulsing animation to draw attention
-        submitButton.classList.add('pulse');
+        submitButton.classList.add('ready');
+    } else {
+        submitButton.classList.remove('ready');
     }
 }
 
