@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morality Meter</title>
     <link rel="stylesheet" href="form.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
 <body>
     <div class="header-section">
         <h1>Morality Meter</h1>
@@ -18,51 +20,51 @@
     <div class="container">
         <div class="questions-container">
             <form id="moralityForm">
-                <div class="question" data-explanation="Fast fashion retailers like H&M, Boohoo, Shein, and Primark are major contributors to environmental damage and labour exploitation.">
+                <div class="question">
                     <div class="question-text">Do you purchase clothing from H&M, Boohoo, Shein, or Primark?</div>
                     <div class="options">
                         <div class="option-box">
                             <input type="radio" name="fastFashion" value="no" id="fastFashion-no">
                             <label for="fastFashion-no">
                                 <h3>No</h3>
-                                <p>I avoid fast fashion</p>
+                                <p>I have never bought from these brands</p>
                             </label>
                         </div>
                         <div class="option-box">
                             <input type="radio" name="fastFashion" value="yes" id="fastFashion-yes">
                             <label for="fastFashion-yes">
                                 <h3>Yes</h3>
-                                <p>I buy from these retailers</p>
+                                <p>I have bought from these retailers</p>
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <div class="question" data-explanation="Future societies may view human reproduction differently due to environmental concerns.">
+                <div class="question">
                     <div class="question-text">Do you have or want to have children?</div>
                     <div class="options">
                         <div class="option-box">
                             <input type="radio" name="children" value="no" id="children-no">
                             <label for="children-no">
                                 <h3>No</h3>
-                                <p>I don't want children</p>
+                                <p>I think people should have less children</p>
                             </label>
                         </div>
                         <div class="option-box">
                             <input type="radio" name="children" value="yes" id="children-yes">
                             <label for="children-yes">
                                 <h3>Yes</h3>
-                                <p>I want to have children</p>
+                                <p>I support parents having children</p>
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <div class="question" data-explanation="Meat and dairy production is a major contributor to greenhouse gas emissions, deforestation, and water pollution.">
+                <div class="question">
                     <div class="question-text">Do you eat meat or dairy?</div>
                     <div class="options">
                         <div class="option-box">
-                            <input type="radio" name="meatDairy" value="no" id="meatDairy-no" required>
+                            <input type="radio" name="meatDairy" value="no" id="meatDairy-no">
                             <label for="meatDairy-no">
                                 <h3>No</h3>
                                 <p>I don't eat meat or dairy</p>
@@ -78,11 +80,11 @@
                     </div>
                 </div>
 
-                <div class="question" data-explanation="Solar panels can be installed on farmland, which can reduce the need for new farmland and help mitigate climate change.">
-                    <div class="question-text">Do you support using farmland for solar panels?</div>
+                <div class="question">
+                    <div class="question-text">Do you support putting solar panels on arable land?</div>
                     <div class="options">
                         <div class="option-box">
-                            <input type="radio" name="solarFarmland" value="no" id="solarFarmland-no" required>
+                            <input type="radio" name="solarFarmland" value="no" id="solarFarmland-no">
                             <label for="solarFarmland-no">
                                 <h3>No</h3>
                                 <p>I don't support using farmland for solar panels</p>
@@ -98,11 +100,11 @@
                     </div>
                 </div>
 
-                <div class="question" data-explanation="Nuclear energy is a major source of nuclear waste and can be dangerous if not handled properly.">
+                <div class="question">
                     <div class="question-text">Do you oppose nuclear energy?</div>
                     <div class="options">
                         <div class="option-box">
-                            <input type="radio" name="nuclearEnergy" value="no" id="nuclearEnergy-no" required>
+                            <input type="radio" name="nuclearEnergy" value="no" id="nuclearEnergy-no">
                             <label for="nuclearEnergy-no">
                                 <h3>No</h3>
                                 <p>I don't oppose nuclear energy</p>
@@ -118,31 +120,31 @@
                     </div>
                 </div>
 
-                <div class="question" data-explanation="Economic degrowth can help reduce environmental impact and promote sustainability.">
-                    <div class="question-text">Do you support economic degrowth?</div>
+                <div class="question">
+                    <div class="question-text">Do you support reducing economic growth?</div>
                     <div class="options">
                         <div class="option-box">
-                            <input type="radio" name="economicDegrowth" value="no" id="economicDegrowth-no" required>
+                            <input type="radio" name="economicDegrowth" value="no" id="economicDegrowth-no">
                             <label for="economicDegrowth-no">
                                 <h3>No</h3>
-                                <p>I don't support economic degrowth</p>
+                                <p>I think we should grow the economy</p>
                             </label>
                         </div>
                         <div class="option-box">
                             <input type="radio" name="economicDegrowth" value="yes" id="economicDegrowth-yes">
                             <label for="economicDegrowth-yes">
                                 <h3>Yes</h3>
-                                <p>I support economic degrowth</p>
+                                <p>I think we should shrink the economy</p>
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <div class="question" data-explanation="Human and machine relationships can be beneficial for both humans and machines, but they can also pose risks if not managed properly.">
+                <div class="question">
                     <div class="question-text">Do you support human and machine relationships?</div>
                     <div class="options">
                         <div class="option-box">
-                            <input type="radio" name="machineRelationships" value="no" id="machineRelationships-no" required>
+                            <input type="radio" name="machineRelationships" value="no" id="machineRelationships-no">
                             <label for="machineRelationships-no">
                                 <h3>No</h3>
                                 <p>I don't support human and machine relationships</p>
@@ -158,7 +160,7 @@
                     </div>
                 </div>
 
-                <button type="submit" style="display: none;">Judge Me</button>
+                <button type="submit">Judge Me</button>
             </form>
         </div>
 
